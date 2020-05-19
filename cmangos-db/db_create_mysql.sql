@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS classicrealmd DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS classiccharacters DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS classicmangos DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS logs DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create user 'mangos'@'localhost' identified by 'mangos';
+SET PASSWORD FOR 'mangos'@'localhost' = PASSWORD('mangos');
+GRANT ALL PRIVILEGES ON *.* TO 'mangos'@'%' IDENTIFIED BY 'mangos';
+flush privileges;
+grant all on classicrealmd.* to mangos@'%' with grant option;
+grant all on classiccharacters.* to mangos@'%' with grant option;
+grant all on classicmangos.* to mangos@'%' with grant option;
+grant all on logs.* to mangos@'%' with grant option;
